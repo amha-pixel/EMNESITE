@@ -1,11 +1,11 @@
 /* ============== FONTS (ret filnavne hvis dine hedder noget andet) ============== */
-@font-face{ font-family:"UrbanVibes"; src: url("/FONTS/woff2/URBANVIBES.woff2") format("woff2"); font-display:swap; }
-@font-face{ font-family:"StreetFlowNYC"; src: url("/FONTS/woff2/StreetFlowNYC.woff2") format("woff2"); font-display:swap; }
-@font-face{ font-family:"Streetbomber"; src: url("/FONTS/woff2/StreetbomberPersonalUseOnly-R.woff2") format("woff2"); font-display:swap; }
-@font-face{ font-family:"AAttackGraffiti"; src: url("/FONTS/woff2/aAttackGraffiti.woff2") format("woff2"); font-display:swap; }
-@font-face{ font-family:"ADrippingMarker"; src: url("/FONTS/woff2/adrippingmarker.woff2") format("woff2"); font-display:swap; }
-@font-face{ font-family:"Vandalust"; src: url("/FONTS/woff2/VandalustGraffiti.woff2") format("woff2"); font-display:swap; }
-@font-face{ font-family:"streetblocker"; src: url("/FONTS/woff2/UrbanBlockerPersonalUseOnly-S.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"UrbanVibes"; src: url("./FONTS/woff2/URBANVIBES.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"StreetFlowNYC"; src: url("./FONTS/woff2/StreetFlowNYC.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"Streetbomber"; src: url("./FONTS/woff2/StreetbomberPersonalUseOnly-R.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"AAttackGraffiti"; src: url("./FONTS/woff2/aAttackGraffiti.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"ADrippingMarker"; src: url("./FONTS/woff2/adrippingmarker.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"Vandalust"; src: url("./FONTS/woff2/VandalustGraffiti.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"streetblocker"; src: url("./FONTS/woff2/UrbanBlockerPersonalUseOnly-S.woff2") format("woff2"); font-display:swap; }
 
 /* ============== BASE ============== */
 *{ box-sizing:border-box; }
