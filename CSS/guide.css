@@ -1,0 +1,286 @@
+/* ============== FONTS (ret filnavne hvis dine hedder noget andet) ============== */
+@font-face{ font-family:"UrbanVibes"; src: url("/FONTS/woff2/URBANVIBES.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"StreetFlowNYC"; src: url("/FONTS/woff2/StreetFlowNYC.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"Streetbomber"; src: url("/FONTS/woff2/StreetbomberPersonalUseOnly-R.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"AAttackGraffiti"; src: url("/FONTS/woff2/aAttackGraffiti.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"ADrippingMarker"; src: url("/FONTS/woff2/adrippingmarker.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"Vandalust"; src: url("/FONTS/woff2/VandalustGraffiti.woff2") format("woff2"); font-display:swap; }
+@font-face{ font-family:"streetblocker"; src: url("/FONTS/woff2/UrbanBlockerPersonalUseOnly-S.woff2") format("woff2"); font-display:swap; }
+
+/* ============== BASE ============== */
+*{ box-sizing:border-box; }
+.g-input{
+    position: fixed;    /* vigtig: ikke en del af siden, så den ikke får scroll */
+    left: -9999px;
+    top:  -9999px;
+    opacity: 0;
+    pointer-events: none;
+  }  
+.page-guide{ background:#d9d9d9; }
+.guide-wrap{ width:min(100%, 1200px); margin:0 auto; padding:0 clamp(12px,3vw,24px); }
+
+/* ============== H1 ============== */
+.guide-title{
+  font: 400 clamp(38px, 10vw, 68px)/1.05 "UrbanVibes", system-ui, sans-serif;
+  text-align:center;
+  margin: clamp(14px, 3.5vw, 28px) auto 0.6rem;
+  color:#6d6d6d;
+  -webkit-text-stroke: 2px #000;
+  text-shadow: 0 6px 20px rgba(0,0,0,.15);
+}
+  
+/* ---------- ERSTATNINGBLOK Backdrop (hidden by default) ---------- */
+.gi-backdrop{
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(2px);
+  z-index: 900;
+}
+
+/* ---------- HERO (base = mobile/tablet) ---------- */
+/* Mobile-first: clip at the hero edge so things don't spill out */
+.guide-hero{
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;                    /* base = clip */
+  box-shadow: 0 12px 12px rgba(0,0,0,.12);
+  background:#000;
+}
+.hero-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+
+/* Words base (mobile/tablet = list under the image) */
+.words{
+  position: static;
+  display: grid;
+  gap: .6rem;
+  padding-top: .5rem;
+  z-index: auto;
+}
+.word-wrap{ position: static; transform: none; --x: initial; --y: initial; }
+.word{
+  position: relative; z-index: 1;
+  display: inline-block; cursor: pointer; user-select: none;
+  -webkit-text-stroke: 2px #000; text-shadow: 0 6px 12px rgba(0,0,0,.35);
+  line-height: 1; transition: transform .15s ease;
+}
+.word:hover{ transform: translateY(-2px); }
+
+/* Panels base (mobile/tablet = below the word, full width when opened) */
+.panel{
+  position: static;
+  display: none;                         /* toggled on by the #wX rules */
+  margin-top: .35rem;
+  background: #ffffffe6; border:2px solid #0003; border-radius:12px;
+  box-shadow:0 10px 18px rgba(0,0,0,.25);
+  padding: var(--panel-pad, .85rem 1rem);
+  color:#111;
+  font-size: var(--panel-fs, clamp(15px, 4vw, 18px));
+  line-height: var(--panel-lh, 1.5);
+  width: 100%; max-width: none;
+  z-index: 12;
+}
+
+/* ---------- Intro-flyout (base) ---------- */
+/* Anchored to the hero on mobile/tablet; no internal scroll needed */
+.guide-intro-flyout{
+  position: absolute; z-index: 5;        /* over background/words */
+  right: clamp(10px, 3vw, 24px);
+  top:   clamp(10px, 3vw, 24px);
+  width: clamp(220px, 42vw, 360px);
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 10px;
+  box-shadow: 0 10px 18px rgba(0,0,0,.18);
+  overflow: visible;                      /* default; can be omitted */
+}
+
+/* Clickable summary + lead (lead always visible) */
+.guide-intro-flyout .gi-summary{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: .5rem;
+  padding: .8rem .95rem;
+  cursor: pointer;
+}
+.guide-intro-flyout .gi-summary strong{
+  font: 600 14px/1.2 system-ui, sans-serif;
+  letter-spacing: .04em;
+}
+.guide-intro-flyout .gi-lead{
+  grid-column: 1 / -1;
+  margin: .35rem 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.gi-caret{
+  width: 18px; height: 18px; align-self: center;
+  border: 2px solid #111; border-left: 0; border-top: 0;
+  transform: rotate(45deg);
+  transition: transform .18s ease;
+}
+
+/* Folded content (hidden by default) */
+.guide-intro-flyout .gi-body{
+  display: none;
+  padding: .85rem 1rem 1rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.guide-intro-flyout .gi-body p{ margin: 0 0 .85rem; }
+.guide-intro-flyout .gi-body p:last-child{ margin-bottom: 0; }
+
+/* Toggle logic (checkbox is before .guide-hero in the DOM) */
+#gi-toggle:checked ~ .guide-hero .guide-intro-flyout .gi-body{ display: block; }
+#gi-toggle:checked ~ .guide-hero .guide-intro-flyout .gi-caret{ transform: rotate(-135deg); }
+
+/* When flyout is open on mobile/tablet -> turn it into a fixed overlay and show backdrop */
+@media (max-width:1080px){
+  #gi-toggle:checked ~ .gi-backdrop{ display:block; }
+
+  #gi-toggle:checked ~ .guide-hero .guide-intro-flyout{
+    position: fixed;
+    z-index: 1001;                         /* over everything */
+    left: 50%; transform: translateX(-50%);
+    top: clamp(70px, 10vh, 120px);
+    width: min(92vw, 520px);
+    max-height: calc(100dvh - clamp(70px, 10vh, 120px) - 24px);
+    overflow: auto;                         /* scroll inside the flyout */
+  }
+}
+
+/* MOBIL/TABLET: billedet opfører sig som normalt <img>, og hero er gennemsigtig */
+@media (max-width:1080px){
+  .guide-hero{
+    aspect-ratio: auto;     /* højden må vokse med indholdet */
+    overflow: visible;      /* klip ikke ordene/paneler */
+    background: transparent;/* så ser du sidens grå baggrund bag ordene */
+  }
+
+  /* billedet deltager i flow, så hero's højde følger billedet */
+  .hero-bg{
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 0;
+  }
+}
+
+
+/* ---------- Desktop (≥1081px) ---------- */
+@media (min-width:1081px){
+  /* On desktop we want overlays to be able to spill out of the hero */
+  .guide-hero{
+    overflow: visible;                      /* allow panels to extend */
+  }
+
+  /* Words go back to absolute overlay positions on the image */
+  .words{ position: absolute; inset: 0; z-index: 1; display: block; }
+  .word-wrap{ position: absolute; left: var(--x,10%); top: var(--y,10%); transform: translate(0,0); }
+  .word{ z-index: 3; }
+  .panel{
+    position: absolute; left: 0; top: calc(100% + 6px);
+    width: max-content; max-width: min(34vw, 420px);
+    font-size: var(--panel-fs, clamp(12px, 1.2vw, 14px));
+    line-height: var(--panel-lh, 1.4);
+  }
+
+  .guide-intro-flyout{
+    width: clamp(280px, 26vw, 420px);
+    overflow: visible;
+  }
+}
+
+/* (tiny phones) */
+@media (max-width:360px){
+  .guide-intro-flyout{ right: 8px; top: 8px; width: min(92vw, 320px); }
+  .guide-intro-flyout .gi-lead{ font-size: 13px; }
+}
+
+/* ===== Toggle selected panel via hidden checkboxes (#w1…#w10) ===== */
+#w1:checked  ~ .guide-hero .word--1  .panel,
+#w2:checked  ~ .guide-hero .word--2  .panel,
+#w3:checked  ~ .guide-hero .word--3  .panel,
+#w4:checked  ~ .guide-hero .word--4  .panel,
+#w5:checked  ~ .guide-hero .word--5  .panel,
+#w6:checked  ~ .guide-hero .word--6  .panel,
+#w7:checked  ~ .guide-hero .word--7  .panel,
+#w8:checked  ~ .guide-hero .word--8  .panel,
+#w9:checked  ~ .guide-hero .word--9  .panel,
+#w10:checked ~ .guide-hero .word--10 .panel{ display: block; }
+
+/* Lift the active word above others so its panel can sit on top (desktop) */
+#w1:checked  ~ .guide-hero .word--1,
+#w2:checked  ~ .guide-hero .word--2,
+#w3:checked  ~ .guide-hero .word--3,
+#w4:checked  ~ .guide-hero .word--4,
+#w5:checked  ~ .guide-hero .word--5,
+#w6:checked  ~ .guide-hero .word--6,
+#w7:checked  ~ .guide-hero .word--7,
+#w8:checked  ~ .guide-hero .word--8,
+#w9:checked  ~ .guide-hero .word--9,
+#w10:checked ~ .guide-hero .word--10{ z-index: 999; }
+
+/* ============== FARVER + FONTS pr. ORD ============== */
+/* 1 Definere — Street Flow NYC — #94051C */
+.word-definere{ font: 400 clamp(38px,12vw,68px)/1 "StreetFlowNYC"; color:#94051C; }
+
+/* 2 Dissekere — Streetbomber — #F4AF04 */
+.word-dissekere{ font: 400 clamp(38px,12vw,68px)/1 "Streetbomber"; color:#F4AF04; }
+
+/* 3 Dechifrere — A Attack Graffiti — #067C70 */
+.word-dechifrere{ font: 400 clamp(38px,12vw,58px)/1 "AAttackGraffiti"; color:#067C70; }
+
+/* 4 Differentiere — A Dripping Marker — #7F4599 */
+.word-differentiere{ font: 400 clamp(38px,12vw,68px)/1.05 "ADrippingMarker"; color:#7F4599; }
+
+/* 5 Distancere — Vandalust — #09A0F2 */
+.word-distancere{ font: 400 clamp(38px,12vw,58px)/1 "Vandalust"; color:#09A0F2; }
+
+/* 6 Dekonstruere — Urban Vibes — #E9670D (med skæv vinkel) */
+.word-dekonstruere{
+  font: 400 clamp(38px,12vw,78px)/1 "UrbanVibes";
+  color:#E9670D;
+  transform: rotate(-10deg) skewX(-10deg);
+}
+.word-dekonstruere:hover{ transform: rotate(-6deg) skewX(-6deg) translateY(-2px); }
+
+/* 7 D e s i l l u s i o n e r e — Street Flow NYC — #94051C (store mellemrum) */
+.word-desillusionere{
+  font: 400 clamp(38px,12vw,68px)/1 "StreetFlowNYC";
+  color:#94051C;
+}
+
+/* 8 Destabilisere — A Attack Graffiti — #F4AF04 */
+.word-destabilisere{ font: 400 clamp(28px,8vw,58px)/1 "AAttackGraffiti"; color:#F4AF04; }
+
+/* 9 Diskutere — A Dripping Marker — #067C70 */
+.word-diskutere{ font: 400 clamp(38px,8vw,68px)/1.05 "ADrippingMarker"; color:#067C70; }
+
+/* 10 De montere — Streetbomber — #09A0F2 (to ord) */
+.word-demontere{
+  font: 400 clamp(38px,12vw,78px)/1 "Streetbomber";
+  color:#09A0F2;
+  transform: rotate(10deg) skewX(10deg);
+}
+.word-demontere span:first-child{ margin-right:.35em; }
+
+/* --- MOBIL/TABLET: lad hero'ens højde udvide sig med ordene --- */
+@media (max-width:1080px){
+  .guide-hero{
+    aspect-ratio: auto;     /* ikke låst 16/9 – højden må vokse med indholdet */
+    overflow: visible;      /* klip ikke ordene/paneler */
+  }
+  .hero-bg{
+    position: relative;     /* billedet deltager i normal flow på mobil */
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 0;
+  }
+}

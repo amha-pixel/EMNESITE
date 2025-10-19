@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+    <title>Guide til kritisk taenkning</title>
+    <link rel="stylesheet" href="CSS/generel.css">
+    <link rel="stylesheet" href="CSS/Layout.css">
+    <link rel="stylesheet" href="CSS/guide.css">
+    <link rel="icon" type="image/svg+xml" href="IMAGES/favicon.svg" sizes="any">
+    <link rel="preload" as="image" href="IMAGES/backgrounddigitalarturbanwall_wp.webp">
+</head>
+
+<body class="page-guide">
+        <header>
+          <div class="logo">
+            <a href="index.html">
+              <img src="IMAGES/LOGOAXHX.svg" alt="AXHXvision logo">
+            </a>
+          </div>
+          <nav aria-label="Hovedmenu">
+            <ol class="menu">
+              <li class="pink"><a href="vision.html"><span class="sr-only">Vision</span></a></li>
+              <li class="green"><a href="matteroutofplace.html"><span class="sr-only">Matter out of place</span></a></li>
+              <li class="green"><a href="normageddon.html"><span class="sr-only">Normageddon</span></a></li>
+              <li class="green"><a href="guidetilkritisktaenkning.html"><span class="sr-only">Guide til kritisk tænkning</span></a></li>
+            </ol>
+          </nav>             
+        </header>
+
+          <main class="guide-wrap">
+            <!-- H1 -->
+            <h1 class="guide-title">Guide til kritisk tænkning</h1>
+          
+            <!-- Skjulte “knapper” til CTA (en pr. ord) -->
+            <input type="checkbox" id="w1"  class="g-input" />
+            <input type="checkbox" id="w2"  class="g-input" />
+            <input type="checkbox" id="w3"  class="g-input" />
+            <input type="checkbox" id="w4"  class="g-input" />
+            <input type="checkbox" id="w5"  class="g-input" />
+            <input type="checkbox" id="w6"  class="g-input" />
+            <input type="checkbox" id="w7"  class="g-input" />
+            <input type="checkbox" id="w8"  class="g-input" />
+            <input type="checkbox" id="w9"  class="g-input" />
+            <input type="checkbox" id="w10" class="g-input" />
+          
+
+            <input type="checkbox" id="gi-toggle" class="g-input" />
+            <div class="gi-backdrop" aria-hidden="true"></div>
+            
+            <section class="guide-hero" aria-label="Scene">
+              <img class="hero-bg" src="IMAGES/backgrounddigitalarturbanwall_wp.webp" alt="Graffiti baggrund" />
+            
+              <!-- Flydende intro-boks (forankret til hero) -->
+              <section class="guide-intro-flyout" aria-labelledby="gi-title">
+                <!-- Klikbar top + lead (lead er altid synlig) -->
+                <label for="gi-toggle" class="gi-summary">
+                  <strong id="gi-title">KLIK & LÆS</strong>
+                  <span class="gi-lead">
+                    Kritisk tænkning giver dig mulighed for at stoppe op, stå op for dig selv og sadle om.
+                  </span>
+                  <span class="gi-caret" aria-hidden="true"></span>
+                </label>
+            
+                <!-- Den fold-ud del (vises når #gi-toggle er checked) -->
+                <div class="gi-body" role="region" aria-label="Intro – uddybning">
+                  <p>Guiden består af 10 ord, der udgør en bevidstgørende praksis, som du frit kan bruge til at bearbejde det, du ser, hører og læser. Klik på ordene for uddybende forklaring.</p>
+            
+                  <p>Hvert ord er et selvstændigt punkt, som kan benyttes i sin enkelthed, men kronologien lægger op til at dykke dybere og gøre dig selv bevidst om indre og ydre begrænsninger. En øvelse i at bryde med overbevisninger, der ikke tjener dine værdier eller din trivsel.</p>
+                  
+                  <p>De 10 ord på skærmen tjener erkendelsen. Din fornemmeste opgave som menneske og borger er at sætte spørgsmålstegn ved det etablerede. Ved magtens beslutningsevne? Ved strukturerne, der danner rammerne for dit liv? Ved værdierne vi værner om i vores samfund? Ved konsekvenserne for dig og dine medmennesker?</p>
+                  
+                  <p>Guiden er et værktøj til dem, der ukritisk har lært at indordne sig eller har tillært ikke at undre sig. Guiden er en rettesnor til os alle, der lever i en verden, som konstant forsøger at overbevise os om, at vores intuition ikke er til at stole på.</p>
+                </div>
+              </section>
+            
+              <!-- ALLE ORD/CTA’er SKAL LIGGE INDE I .guide-hero -->
+              <div class="words">
+                <div class="word-wrap word--1"  style="--x:8%;  --y:2%;">
+                  <label for="w1" class="word word-definere">Definere</label>
+                  <article class="panel"><p>Definere er at starte med at afklare, hvad noget betyder. Når vi definerer begreber, sikrer vi, at vi taler om det samme og undgår misforståelser.</p></article>
+                </div>
+          
+                <div class="word-wrap word--2"  style="--x:5%; --y:11%;">
+                  <label for="w2" class="word word-dissekere">Dissekere</label>
+                  <article class="panel"><p>Dissekere er at skille noget ad i sine bestanddele for at forstå, hvordan det hænger sammen. Man kan fx dissekere et argument eller en tekst for at se, hvilke antagelser den bygger på.</p></article>
+                </div>
+          
+                <div class="word-wrap word--3"  style="--x:5%;  --y:23%;">
+                  <label for="w3" class="word word-dechifrere">Dechifrere</label>
+                  <article class="panel"><p>Dechifrere er at afkode skjulte budskaber eller komplekse sammenhænge. Kritisk tænkning handler også om at kunne se bag om sproget og symbolikken.</p></article>
+                </div>
+          
+                <div class="word-wrap word--4"  style="--x:8%; --y:30%;">
+                  <label for="w4" class="word word-differentiere">Differentiere</label>
+                  <article class="panel"><p>Differentiere er at skelne mellem forskellige elementer, nuancer eller perspektiver. At kunne differentiere er afgørende for at undgå sort-hvid tænkning.</p></article>
+                </div>
+          
+                <div class="word-wrap word--5"  style="--x:6%;  --y:40%;">
+                  <label for="w5" class="word word-distancere">Distancere</label>
+                  <article class="panel"><p>Distancere er at træde et skridt tilbage og se tingene udefra. Når vi distancerer os, får vi overblik og undgår at være fanget i egne følelser eller fordomme.</p></article>
+                </div>
+          
+                <div class="word-wrap word--6"  style="--x:15%; --y:45%;">
+                  <label for="w6" class="word word-dekonstruere">Dekonstruere</label>
+                  <article class="panel"><p>Dekonstruere er at pille en tanke, et system eller en tekst fra hinanden for at afsløre indbyggede modsætninger eller skjulte magtforhold.</p></article>
+                </div>
+          
+                <div class="word-wrap word--7"  style="--x:5%; --y:57%;">
+                  <label for="w7" class="word word-desillusionere">Desillusionere</label>
+                  <article class="panel"><p>Desillusionere er at bryde med illusioner og forestillinger, der ikke holder stik. Kritisk tænkning kræver, at vi tør se virkeligheden, også når den ikke stemmer overens med vores ønsker.</p></article>
+                </div>
+          
+                <div class="word-wrap word--8"  style="--x:8%; --y:65%;">
+                  <label for="w8" class="word word-destabilisere">Destabilisere</label>
+                  <article class="panel"><p>Destabilisere er at udfordre etablerede sandheder og rokke ved det, der tages for givet. Det kan skabe ubehag, men er nødvendigt for at åbne op for nye erkendelser.</p></article>
+                </div>
+          
+                <div class="word-wrap word--9"  style="--x:12%;  --y:74%;">
+                  <label for="w9" class="word word-diskutere">Diskutere</label>
+                  <article class="panel"><p>Diskutere er at sætte tanker i spil med andre, teste ideer og argumenter gennem dialog. Diskussion er central for at afprøve og styrke kritisk tænkning.</p></article>
+                </div>
+          
+                <div class="word-wrap word--10" style="--x:8%; --y:82%;">
+                  <label for="w10" class="word word-demontere"><span>De</span>&nbsp;<span>montere</span></label>
+                  <article class="panel"><p>Demontere er at løsrive sig fra tidligere overbevisninger for at gøre plads til et nyt tankesæt med nye reflektioner og ideer. Kritisk tænkning er at bruge viden og erfaringer til at handle anderledes.</p></article>
+                </div>
+              </div>
+            </section>
+          </main>
+      <footer>
+        <p>© 2025 AXHX</p>
+        <a class="exit" href="index.html" aria-label="Til forsiden">
+          <img src="IMAGES/ExitCTA_clean_fixed.svg" alt="Logo AXHX" draggable="false">
+        </a>
+      </footer>
+  </body>
+  </html>

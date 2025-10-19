@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+    <title>Vision</title>
+    <link rel="stylesheet" href="CSS/generel.css">
+    <link rel="stylesheet" href="CSS/Layout.css">
+    <link rel="stylesheet" href="CSS/vision.css">
+    <link rel="icon" type="image/svg+xml" href="IMAGES/favicon.svg" sizes="any">
+    <link rel="preload" as="image" href="IMAGES/backgrounddigitalartaxhxvision_wp.webp">
+    
+</head>
+
+<body class="page-vision">
+    <header>
+      <div class="logo">
+        <a href="/">
+          <img src="IMAGES/LOGOAXHX.svg" alt="AXHXvision logo">
+        </a>
+      </div>
+      <nav aria-label="Hovedmenu">
+        <ol class="menu">
+          <li class="pink"><a href="vision.html"><span class="sr-only">Vision</span></a></li>
+          <li class="green"><a href="matteroutofplace.html"><span class="sr-only">Matter out of place</span></a></li>
+          <li class="green"><a href="normageddon.html"><span class="sr-only">Normageddon</span></a></li>
+          <li class="green"><a href="guidetilkritisktaenkning.html"><span class="sr-only">Guide til kritisk tænkning</span></a></li>
+        </ol>
+      </nav>       
+    </header>
+
+  
+    <!-- SIDE-SCOPE -->
+      <main class="container">
+        <h1 class="page-title h1--outlined">Visionen bag udstillingen</h1> 
+    
+        <!-- Wrapper så inputs er søskende til både hero og panels -->
+        <section class="vision-wrap">
+    
+          <!-- MOBIL: radio (kun én åben ad gangen) -->
+          <input type="radio" name="vtab" id="rd-none"  class="v-input v-input--rd" checked>
+          <input type="radio" name="vtab" id="rd-web"   class="v-input v-input--rd">
+          <input type="radio" name="vtab" id="rd-axhx"  class="v-input v-input--rd">
+          
+          <!-- DESKTOP: checkbox (op til to åbne) -->
+          <input type="checkbox" id="cb-web"  class="v-input v-input--cb">
+          <input type="checkbox" id="cb-axhx" class="v-input v-input--cb">
+          
+    
+          <!-- HERO med baggrund + CTA-bobler (labels) -->
+          <section class="vision-hero" aria-labelledby="vision-title">
+            <h1 id="vision-title" class="sr-only">Vision</h1>
+            <img class="vision-hero__bg" src="IMAGES/backgrounddigitalartaxhxvision_wp.webp" alt="Vision – futuristisk rum med neon">
+    
+            <!-- Labels til RADIO (mobil) -->
+            <label for="rd-web"   class="cta-img cta--web   v-label--rd" aria-controls="pane-web-rd">
+              <img src="IMAGES/BlåCTA.svg"  alt="">
+            </label>
+            <label for="rd-axhx"  class="cta-img cta--axhx  v-label--rd" aria-controls="pane-axhx-rd">
+              <img src="IMAGES/PinkCTA.svg" alt="">
+            </label>
+    
+            <!-- Labels til CHECKBOX (desktop) -->
+            <label for="cb-web"   class="cta-img cta--web   v-label--cb" aria-controls="pane-web-cb">
+              <img src="IMAGES/BlåCTA.svg"  alt="">
+            </label>
+            <label for="cb-axhx"  class="cta-img cta--axhx  v-label--cb" aria-controls="pane-axhx-cb">
+              <img src="IMAGES/PinkCTA.svg" alt="">
+            </label>
+    
+            <!-- DESKTOP-paneler (ligger oven på billedet) -->
+            <article id="pane-web-cb"  class="v-pane v-pane--web  v-pane--cb"  aria-labelledby="pane-web-title">
+              <h2 id="pane-web-title" class="sr-only">Web-version</h2>
+              <p>En kunstners opgave er ikke at overbevise andre om sandheden. Til det har vi politikere, journalister, forskere og meningsdannere. En kunstners opgave er at få andre til at reflektere over deres egen sandhed.</p> 
+
+<p> Min livsanskuelse er hverken sand eller falsk. Den er et spejl, som jeg holder op foran dit blik, så du kan få øje på dine egne overbevisninger.</p> 
+
+<p> Mit kunstneriske virke giver anledning til, at du kigger indad og kaster et blik på dine egne holdninger. Lige dér — ligger invitationen til, at du bevidstgør dine værdier og handler i overensstemmelse med dem.</p> 
+
+<p> Digital aktivisme som kunstform er at pushe en agenda, men jeg er uinteresseret i at skubbe dig i en ideologisk retning.</p> 
+
+<p> Min vision er, at jeg vil have dig som menneske og borger til at se vores samfund efter i sømmene og sætte spørgsmålstegn ved samfundsstrukturerne.</p> 
+
+<p> Accelererende forandringer på samfundsplan er uundgåelige, og du kan enten vælge:</p> 
+
+<p> Passiv forandring, hvor samfundet ændrer form, mens du kigger den anden vej.</p> 
+
+<p> Proaktiv forandring, hvor du øver dig i at tage stilling og handler derefter.</p> 
+
+<p> Sidstnævnte velkommer en forandringsproces, hvor du er medskaber frem for blind passager på samfundets ekspresforandring.</p> 
+
+<p> Det er op til dig.</p> 
+
+
+              <label for="cb-web"  class="v-close" aria-label="Luk">✕</label>
+            </article>
+    
+            <article id="pane-axhx-cb" class="v-pane v-pane--axhx v-pane--cb" aria-labelledby="pane-axhx-title">
+              <h2 id="pane-axhx-title" class="sr-only">AXHX</h2>
+              <p> A for attention, D for deficit, H for hyperactivity, D for disorder. Nej vel?</p> 
+
+<p> Nærmere AXHX, hvor A står for Amalie og H for Hammel. Og så har jeg sat kryds over deficit og disorder. Den eneste forstyrrelse, jeg lever med, er det danske samfunds manglende evne til at imødekomme mennesker, som adskiller sig fra normen.</p> 
+
+<p> Jeg tror på, at kreativitet bidrager med nye perspektiver, der kan aktiverer handling.</p> 
+
+<p> AXHX er mit tag og mit digitale aftryk, hvor jeg tager afsæt i kunstens evne til at skabe erkendelse og mobilisere forandring.</p> 
+
+<p> Gennem visuel kommunikation, narrativ formidling og konceptuelt design arbejder jeg for at synliggøre systemiske blinde vinkler og fremme forståelse for neurodiversitet, menneskelig værdighed og demokratisk transparens.</p> 
+
+<p> AXHX er ikke blot et kunstnerisk projekt.
+ AXHX er en modkultur til etablerede sandheder.</p> 
+              <label for="cb-axhx" class="v-close" aria-label="Luk">✕</label>
+            </article>
+          </section>
+    
+          <!-- MOBIL-paneler (folder ud under billedet) -->
+          <section class="vision-panels v-panels--rd">
+            <article id="pane-web-rd"  class="v-pane v-pane--web"  aria-labelledby="pane-web-title-rd">
+              <h2 id="pane-web-title-rd" class="sr-only">Web-version</h2>
+              <p>En kunstners opgave er ikke at overbevise andre om sandheden. Til det har vi politikere, journalister, forskere og meningsdannere. En kunstners opgave er at få andre til at reflektere over deres egen sandhed.</p> 
+
+<p> Min livsanskuelse er hverken sand eller falsk. Den er et spejl, som jeg holder op foran dit blik, så du kan få øje på dine egne overbevisninger.</p> 
+
+<p> Min praksis giver anledning til, at du kigger indad og kaster et blik på dine egne holdninger. Lige dér — ligger invitationen til, at du bevidstgør dine værdier og handler i overensstemmelse med dem.</p> 
+
+<p> Digital aktivisme som kunstform er at pushe en agenda, men jeg er uinteresseret i at skubbe dig i en ideologisk retning.</p> 
+
+<p> Min vision er, at jeg vil have dig til at se vores samfund efter i sømmene og sætte spørgsmålstegn ved samfundsstrukturerne.</p> 
+
+<p> Accelererende forandringer på samfundsplan er uundgåelige, og du kan enten vælge:</p> 
+
+<p> Passiv forandring, hvor samfundet ændrer form, mens du kigger den anden vej.</p> 
+
+<p> Proaktiv forandring, hvor du øver dig i at tage stilling og handler derefter.</p> 
+
+<p> Sidstnævnte velkommer en forandringsproces, hvor du er medskaber frem for blind passager på samfundets ekspresforandring.</p> 
+
+<p> Det er op til dig.</p> 
+              <label for="rd-none" class="v-close" aria-label="Luk">✕</label>
+            </article>
+    
+            <article id="pane-axhx-rd" class="v-pane v-pane--axhx" aria-labelledby="pane-axhx-title-rd">
+              <h2 id="pane-axhx-title-rd" class="sr-only">AXHX</h2>
+              <p> A for attention, D for deficit, H for hyperactivity, D for disorder. Nej vel?</p> 
+
+<p> Nærmere AXHX, hvor A står for Amalie og H for Hammel. Og så har jeg sat kryds over deficit og disorder. Den eneste forstyrrelse, jeg lever med, er det danske samfunds manglende evne til at imødekomme mennesker, som adskiller sig fra normen.</p> 
+
+<p> Jeg tror på, at kreativitet bidrager med nye perspektiver, der kan aktiverer handling.</p> 
+
+<p> AXHX er mit tag og mit digitale aftryk, hvor jeg tager afsæt i kunstens evne til at skabe erkendelse og mobilisere forandring.</p> 
+
+<p> Gennem visuel kommunikation, narrativ formidling og konceptuelt design arbejder jeg for at synliggøre systemiske blinde vinkler og fremme forståelse for neurodiversitet, menneskelig værdighed og demokratisk transparens.</p> 
+
+<p> AXHX er ikke blot et kunstnerisk projekt.
+ AXHX er en modkultur til etablerede sandheder.</p> 
+              <label for="rd-none" class="v-close" aria-label="Luk">✕</label>
+            </article>
+          </section>
+    
+        </section>
+      </main>
+    
+  <footer>
+    <p>© 2025 AXHX</p>
+    <a class="exit" href="index.html" aria-label="Til forsiden">
+      <img src="IMAGES/ExitCTA_clean_fixed.svg" alt="Logo AXHX" draggable="false">
+    </a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,210 @@
+/* ===== Header / nav ===== */
+header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 16px;
+  background-color: var(--bg-header);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img { width: 60px; height: 50px; }
+
+nav { display: flex; align-items: center; }
+
+/* ===== Plads under sticky header ===== */
+main { padding-top: calc(var(--header-h) + 16px); }
+
+/* ===== Menu ===== */
+.menu {
+  /* layout */
+  display: flex;
+  justify-content: space-between; /* eller brug gap i stedet */
+  gap: var(--gap);
+}
+
+/* Farve fra variablen – gælder alle tilstande */
+.menu a:link,
+.menu a:visited,
+.menu a:hover,
+.menu a:active,
+.menu a:focus {
+  color: var(--c, var(--brand));   /* fallback = grøn */
+  text-decoration: none;
+  transition: color .3s;
+}
+
+/* Varianter sætter kun variablen */
+.menu li.pink  { --c: var(--pink); }   /* Vision */
+.menu li.green { --c: var(--green); }  /* Øvrige */
+
+/* » pil før */
+.menu a::before { content: "»"; color:#9a9a9a; opacity:.6; }
+
+/* Automatisk nummerering (00, 01, 02, 03) efter pilen */
+.menu { counter-reset: item -1; }
+.menu a::after {
+  counter-increment: item;
+  content: " " counter(item, decimal-leading-zero);
+  opacity: .95;
+}
+
+/* Hover/focus pynt */
+.menu a:hover,
+.menu a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+/* High-contrast for keyboard focus */
+.menu a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ===== Burger/aktiv nav (hvis du bruger den) ===== */
+nav.active .menu {
+  display: block;
+  background-color: var(--brand);
+  position: absolute; top: calc(var(--header-h) + 30px); left: 0;
+  width: 100%;
+  box-shadow: 0 10px 10px rgba(0,0,0,.1);
+  z-index: 60;
+}
+nav.active .menu li { margin: 10px 20px; }
+nav.active .menu a { font-size: 24px; }
+
+/* ===== Footer ===== */
+footer{
+  display: flex; justify-content: center; align-items: center;
+  gap: .8rem; padding: 1rem 1.25rem;
+  background: #d9d9d9;
+}
+
+/* Exit-knappen */
+footer .exit { line-height: 0; }
+footer .exit img{
+  width: clamp(70px, 10vw, 130px);
+  height: auto;
+  display: block;
+}
+footer .exit img:hover{
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+  transform: translateY(-1px);
+  transition: .15s ease;
+}
+
+/* ===== HALL / scene-komponent – BASIS ===== */
+.hall{
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: min(100vw, 1200px);
+  margin: 2rem auto;
+  overflow: hidden;                      /* klip indhold til rammen */
+  box-shadow: 0 12px 12px rgba(0,0,0,.1);
+  border-radius: 6px;
+
+  /* tokens (basis-værdier, kan overstyres pr. side) */
+  --logo-x: 4%;
+  --logo-y: 4%;
+  --logo-w: 58%;
+
+  --cta-size: 4%;        /* bredde på CTA (i % af hall-bredden) */
+  --cta-top: 25%;        /* FÆLLES lodret position for CTA’er (kan ændres pr. side) */
+  --door-left: 21%;      /* venstre dør placering (kan ændres pr. side) */
+  --door-right: 21%;     /* højre dør placering (kan ændres pr. side) */
+}
+
+/* Billedet som baggrund */
+.hall__bg{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+
+/* Indhold ovenpå (normal flow-indhold) */
+.hall__content{ position: relative; z-index: 1; }
+
+/* Logo ovenpå */
+.hall__logo{
+  position: absolute;
+  left: var(--logo-x);
+  top:  var(--logo-y);
+  width: var(--logo-w);
+  height: auto;
+  z-index: 2;
+}
+
+/* GRUNDSTIL */
+.cta{
+  /* base transforms styres via variabler */
+  --tx: 0;          /* X-translation */
+  --ty: 0;          /* Y-translation (ændres på hover) */
+
+  position: absolute; z-index: 2;
+  display: grid; place-items: center;
+  width: var(--cta-size); aspect-ratio: 1;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 6px 10px rgba(0,0,0,.18);
+  transform: translate(var(--tx), var(--ty));
+  transition: transform .15s ease, background-color .15s ease;
+}
+
+.cta__icon{ width: 70%; height: auto; display: block; }
+
+/* ÉNS hover for alle tre */
+.cta:hover{
+  --ty: -3px;                 /* samme bevægelse på Y for alle */
+  background: transparent;    /* din tidligere linje manglede : */
+}
+
+.cta:focus-visible{ outline: 2px solid #fb4cbf; outline-offset: 3px; }
+
+/* BASISPLACERING – nu uden at overstyre hele transform */
+.cta--door1{ top: var(--cta-top); left:  var(--door-left); }
+.cta--door2{ top: var(--cta-top); left: 50%; --tx: -50%; } /* kun X via variabel */
+.cta--door3{ top: var(--cta-top); right: var(--door-right); }
+
+/* Små skærme – uændret */
+@media (max-width: 400px){
+  .hall{ --cta-size: 8%; --cta-top: 26%; }
+}
+
+/* ===== FORSIDE: overstyr tokens/placering ===== */
+.home .hall {
+  --cta-top: 20%;         /* større tal = længere ned; sæt hvad der passer din forside */
+  /* du kan også overstyre disse hvis nødvendigt: */
+  /* --door-left: 22%; */
+  /* --door-right: 20%; */
+}
+
+/* Hvis du vil nudge enkelt-CTA’er lidt ekstra (valgfrit) */
+/* .home .cta--door1 { top: 22%; } */
+/* .home .cta--door2 { top: 21%; } */
+/* .home .cta--door3 { top: 23%; } */
+
+
+/* ===== FORSIDE: H1 styling ===== */
+.home .hero-title{
+  font: 400 clamp(28px, 5vw, 52px)/1.05 var(--font-base);
+  letter-spacing: .04em;
+  text-align: center;
+  margin: clamp(12px, 2vw, 24px) auto;
+  text-shadow: 0 6px 12px rgba(0,0,0,.12);
+}
+
+/* Outline + farver – kun for forsiden */
+.home .h1--outlined span{
+  -webkit-text-stroke: 1.6px #8b8b8b;   /* grå kant */
+}
+.home .w-green{ color: #46b138; }       /* grøn */
+.home .w-grey { color: #abacab; }       /* grå */
+
+@supports not (-webkit-text-stroke: 1px black){
+  .home .h1--outlined span{
+    text-shadow:
+      1px 0 0 #6a6a6a, -1px 0 0 #6a6a6a,
+      0 1px 0 #6a6a6a,  0 -1px 0 #6a6a6a,
+      0 6px 12px rgba(0,0,0,.12);
+  }
+}
