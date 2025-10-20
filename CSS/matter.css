@@ -210,3 +210,10 @@
     --duck-min:56px; --duck-ideal:7vw; --duck-max:110px;
   }
 }
+
+/* === FORCE Blisey på overskriften (debug) === */
+.page-matter h1.page-title,
+.page-matter h1.matter-title{
+  font-family: "Blisey", system-ui, Arial, sans-serif !important;
+  font-weight: 400 !important;
+}
