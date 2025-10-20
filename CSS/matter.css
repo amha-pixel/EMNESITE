@@ -297,3 +297,20 @@
   overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);
   white-space:nowrap;
 }
+
+/* Webfont – nederst */
+@font-face{
+  font-family:"Blisey";
+  src:
+    url("/FONTS/Blisey.woff2") format("woff2"),
+    url("/FONTS/Blisey.woff")  format("woff");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+/* Bind H1 til Blisey – selector der passer til din HTML */
+.matter-wrap .page-title{
+  font-family:"Blisey", system-ui, Arial, sans-serif;
+  font-weight:400; /* matcher @font-face */
+}
