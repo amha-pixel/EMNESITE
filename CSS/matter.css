@@ -13,12 +13,6 @@
   font-display:swap;
 }
 
-.matter-wrap .page-title{
-  font-family:"Blisey", system-ui, Arial, sans-serif;
-  font-weight:400;
-}
-
-
 /* ====== H1 ====== */
 .page-matter .page-title{
   font: 400 clamp(28px, 5vw, 52px)/1.05 "Blisey", system-ui, Arial, sans-serif;
@@ -120,8 +114,6 @@
     --place-gap: .6rem;             /* bring 'place' tættere på billedet */
   }
 }
-
-
 
 /* ====== SCENE / HERO ====== */
 .matter-wrap{ width:min(100%,400px); margin:0 auto; }
