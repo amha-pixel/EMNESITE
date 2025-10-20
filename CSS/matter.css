@@ -1,8 +1,13 @@
-/* ====== Utilities ====== */
-*{ box-sizing: border-box; }
+/* ===== Utilities ===== */
+*{ box-sizing:border-box; }
 .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 .m-input{ position:absolute; opacity:0; pointer-events:none; }
+.visually-hidden{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; border:0;
+  overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap;
+}
 
+/* ===== Webfont ===== */
 @font-face{
   font-family:"Blisey";
   src:
@@ -13,219 +18,151 @@
   font-display:swap;
 }
 
-/* ====== H1 ====== */
+/* ===== Layout wrap (scoped) ===== */
+.page-matter .matter-wrap{
+  width:min(100%, 1200px);
+  margin:0 auto;
+  --pad: clamp(12px, 3vw, 24px);
+  --place-room: 1rem;
+  padding:0 var(--pad);
+  padding-right:calc(var(--pad) + var(--place-room));
+}
+
+/* ===== H1 / Heading ===== */
+.page-matter .matter-heading{
+  position:relative;
+  width:min(100%, 1200px);
+  margin: clamp(70px, 4vw, 56px) auto clamp(12px, 2vw, 24px);
+  overflow:visible;
+}
 .page-matter .page-title{
   font: 400 clamp(28px, 5vw, 52px)/1.05 "Blisey", system-ui, Arial, sans-serif;
-  text-align: center;
-  letter-spacing: .04em;
-  margin: clamp(12px, 2vw, 24px) auto;
-  color: #000000;
-  -webkit-text-stroke: 1.2px #8b8b8b;
-  text-shadow: 0 6px 12px rgba(0,0,0,.10);
+  text-align:center;
+  letter-spacing:.04em;
+  margin:0;
+  color:#000;
+  -webkit-text-stroke:1.2px #8b8b8b;
+  text-shadow:0 6px 12px rgba(0,0,0,.10);
 }
-
-/* container for den delte overskrift */
-.page-matter .matter-heading{
-  position: relative;
-  width: min(100%, 1200px);
-  margin: clamp(12px, 2vw, 24px) auto;
-  overflow: visible; /* ok her – men 'place' styres nu af hero'en */
-}
-
-/* venstre del: "Matter out of" – samme look som din page-title */
 .page-matter .matter-title{
+  /* split-overskriften deler samme look som .page-title */
   font: 400 clamp(28px, 5vw, 52px)/1.05 "Blisey", var(--font-base, system-ui);
-  letter-spacing: .04em;
-  color: #000000;
-  -webkit-text-stroke: 1.2px #000000;
-  text-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-
-  display: flex;
-  gap: .6ch;
-  justify-content: flex-start;
-  margin: 0;  /* heading-containeren håndterer margin */
+  letter-spacing:.04em;
+  color:#000;
+  -webkit-text-stroke:1.2px #000;
+  text-shadow:0 6px 12px rgba(0,0,0,.10);
+  display:flex; gap:.6ch; justify-content:flex-start;
 }
 
-/* === NYT: hero'en tillader at 'place' kan stå udenfor højre kant === */
+/* ===== Hero / Scene ===== */
 .page-matter .matter-hero{
-  overflow: visible;              /* vigtigt, ellers klippes 'place' af */
-  --place-gap: 1.2rem;            /* afstand fra højre billedkant */
-}
-
-/* højre, lodrette ord: "place" – nu positioneret i HERO'en */
-.page-matter .matter-place{
-  position: absolute;
-  top: 50%;
-  right: calc(-1 * var(--place-gap)); /* ryk udenfor billedets højre kant */
-  transform: translateY(-50%);
-
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-
-  font: 400 clamp(22px, 4.5vw, 44px)/1 "Blisey", var(--font-base, system-ui);
-  letter-spacing: .04em;
-  color: #000000;
-  -webkit-text-stroke: 1.2px #0f0b0b;
-  text-shadow: 0 6px 12px rgba(0,0,0,.10);
-
-  z-index: 2;
-  pointer-events: none;  /* må ikke stjæle klik fra CTA'er */
-}
-
-
-
-/* Giv hele siden en smule side-padding + ekstra plads til 'place' i højre side */
-.page-matter .matter-wrap{
-  width: min(100%, 1200px);
-  margin: 0 auto;
-  /* almindelig side-padding + ekstra room til 'place' */
-  --pad: clamp(12px, 3vw, 24px);
-  --place-room: 1rem;            /* hvor meget ekstra luft til højre */
-  padding: 0 var(--pad);
-  padding-right: calc(var(--pad) + var(--place-room));
-}
-
-/* Hero’en må rage ud (så 'place' kan stå udenfor billedet) */
-.page-matter .matter-hero{
-  overflow: visible;
-  --place-gap: 1.2rem;              /* afstand mellem billedkant og 'place' */
-  margin: 1rem auto 1.25rem;
-  width: 100%;
-}
-
-/* Lodret 'place' (som du allerede har) */
-.page-matter .matter-place{
-  position: absolute;
-  top: 50%;
-  right: calc(-1 * var(--place-gap));
-  transform: translateY(-50%);
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Mobile finjustering: lidt mindre luft nødvendig */
-@media (max-width: 700px){
-  .page-matter .matter-wrap{
-    --place-room: 1.5rem;           /* mindre ekstra plads på små skærme */
-  }
-  .page-matter .matter-hero{
-    --place-gap: .6rem;             /* bring 'place' tættere på billedet */
-  }
-}
-
-/* ====== SCENE / HERO ====== */
-.matter-wrap{ width:min(100%,400px); margin:0 auto; }
-.matter-hero{
   position:relative;
-  aspect-ratio: 16/9;
-  width: 100%;
-  margin: 1rem auto 1.25rem;
-  overflow:hidden; border-radius:8px;
-  box-shadow: 0 12px 12px rgba(0,0,0,.12);
+  aspect-ratio:16/9;
+  width:100%;
+  margin:1rem auto 1.25rem;
+  overflow:visible;                 /* vigtigt for 'place' */
+  border-radius:8px;
+  box-shadow:0 12px 12px rgba(0,0,0,.12);
 
-  /* tokens du kan justere frit */
-  --art-w: 33%;
-  --art-left: 34%;
-  --art-top: 7%;
+  /* tokens */
+  --place-gap:1.2rem;
+  --art-w:33%;
+  --art-left:34%;
+  --art-top:7%;
 
   /* CTA-størrelser (mobile-first) */
-  --duck-min: 58px;
-  --duck-ideal: 22vw;
-  --duck-max: 100px;
+  --duck-min:28px;
+  --duck-ideal:12vw;
+  --duck-max:56px;
 }
-.matter-hero__bg{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+.page-matter .matter-hero__bg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; z-index:0;
 }
 
-/* === ART: to billeder ovenpå hinanden + klik/tap overlay === */
-/* ART wrap placeres via tokens fra .matter-hero */
+/* Lodret "place" */
+.page-matter .matter-place{
+  position:absolute;
+  top:50%;
+  right:calc(-1 * var(--place-gap));
+  transform:translateY(-50%);
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  font:400 clamp(22px, 4.5vw, 44px)/1 "Blisey", var(--font-base, system-ui);
+  letter-spacing:.04em; color:#000;
+  -webkit-text-stroke:1.2px #0f0b0b;
+  text-shadow:0 6px 12px rgba(0,0,0,.10);
+  z-index:2; pointer-events:none;
+}
+
+/* ART: base + alt + klik/tap overlay */
 .page-matter .matter-hero__artwrap{
   position:absolute; z-index:1;
-  left: var(--art-left); top: var(--art-top);
-  width: var(--art-w);
-  filter: drop-shadow(0 16px 20px rgba(0,0,0,.28));
-  border-radius: 2px;
+  left:var(--art-left); top:var(--art-top);
+  width:var(--art-w);
+  filter:drop-shadow(0 16px 20px rgba(0,0,0,.28));
+  border-radius:2px;
 }
-
-/* BASE-billedet giver højde (flow) */
 .page-matter .matter-hero__artwrap .art--base{
-  position: relative;
-  display:block;
-  width:100%; height:auto;
-  border-radius: inherit;
+  position:relative; display:block; width:100%; height:auto; border-radius:inherit;
 }
-
-/* ALT-billedet ligger ovenpå (overlay) og er skjult som udgangspunkt */
 .page-matter .matter-hero__artwrap .art--alt{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit: cover;
-  border-radius: inherit;
-  opacity:0; transition: opacity .25s ease;
-  pointer-events:none; /* så label kan klikkes */
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; border-radius:inherit;
+  opacity:0; transition:opacity .25s ease;
+  pointer-events:none;
 }
-
-/* Hover (mus) viser ALT */
 .page-matter .matter-hero__artwrap:hover .art--alt,
-.page-matter .matter-hero__artwrap:focus-within .art--alt{
-  opacity:1;
-}
+.page-matter .matter-hero__artwrap:focus-within .art--alt{ opacity:1; }
+#art-toggle:checked ~ .matter-hero .matter-hero__artwrap .art--alt{ opacity:1; }
 
-/* Tap (mobil): checkboxen før hero’en tænder ALT */
-#art-toggle:checked ~ .matter-hero .matter-hero__artwrap .art--alt{
-  opacity:1;
-}
-
-/* Klik/tap overlay */
 .page-matter .matter-hero__artwrap .art-hit{
   position:absolute; inset:0; cursor:pointer; border-radius:inherit;
 }
-@media (hover:hover){ .page-matter .matter-hero__artwrap{ cursor:pointer; } }
-
+@media (hover:hover){
+  .page-matter .matter-hero__artwrap{ cursor:pointer; }
+}
 /* (valgfrit) crossfade – dæmp BASE når ALT vises */
 .page-matter .matter-hero__artwrap:hover .art--base,
 #art-toggle:checked ~ .matter-hero .matter-hero__artwrap .art--base{
-  opacity:0; transition: opacity .25s ease;
+  opacity:0; transition:opacity .25s ease;
 }
 
-/* ====== CTA-ÆNDER ====== */
-.cta-duck{
+/* ===== CTA-ænder ===== */
+.page-matter .cta-duck{
   --tx:0; --ty:0;
   position:absolute; z-index:2;
-  transform: translate(var(--tx), var(--ty));
-  transition: transform .15s ease;
+  transform:translate(var(--tx), var(--ty));
+  transition:transform .15s ease;
   line-height:0;
 }
-.cta-duck img{
+.page-matter .cta-duck img{
   display:block;
-  width: clamp(var(--duck-min), var(--duck-ideal), var(--duck-max));
+  width:clamp(var(--duck-min), var(--duck-ideal), var(--duck-max));
   height:auto;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.25));
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));
 }
-.cta-duck:hover, .cta-duck:focus-visible{ --ty:-2px; outline:none; }
+.page-matter .cta-duck:hover,
+.page-matter .cta-duck:focus-visible{ --ty:-2px; outline:none; }
 
-/* Placering af de fem ænder (justér procenterne) */
-.duck--1{ left:  8%; bottom: 6%; }
-.duck--2{ right: 6%; bottom: 6%; }
-.duck--3{ left: 16%; bottom: 1%; }
-.duck--4{ right:20%; bottom: 0%; }
-.duck--5{ left: 63%; bottom: 20%; transform: translate(-50%, var(--ty)); }
+/* Placering af ænderne */
+.page-matter .duck--1{ left:8%;  bottom:6%; }
+.page-matter .duck--2{ right:6%; bottom:6%; }
+.page-matter .duck--3{ left:16%; bottom:1%; }
+.page-matter .duck--4{ right:20%; bottom:0%; }
+.page-matter .duck--5{ left:63%; bottom:20%; transform:translate(-50%, var(--ty)); }
 
-/* ====== Paneler (tekstbokse) – fælles stil ====== */
-.duck-pane{
+/* ===== Paneler ===== */
+.page-matter .duck-pane{
   position:relative;
-  background:#fff8; backdrop-filter: blur(2px);
+  background:#fff8; backdrop-filter:blur(2px);
   border:2px solid #0002; border-radius:10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
   color:#111; line-height:1.5;
-  padding-top: 2rem; /* plads til luk-knap */
+  padding-top:2rem; /* plads til luk-knap */
 }
-.duck-pane p{ margin:0; padding:.9rem 1rem 1rem; }
-
-/* Luk-knap */
-.m-close{
+.page-matter .duck-pane p{ margin:0; padding:.9rem 1rem 1rem; }
+.page-matter .m-close{
   position:absolute; top:.4rem; right:.6rem;
   width:28px; height:28px; border-radius:999px;
   display:grid; place-items:center; cursor:pointer;
@@ -233,22 +170,23 @@
   box-shadow:0 2px 6px rgba(0,0,0,.2); font-weight:700;
 }
 
-/* Farver til de fem bokse (semi-transparente) – ret som du vil */
-.pane--one  { background: rgba(124,237,247,.35); border-color: rgba(44,30,136,.9); }
-.pane--two  { background: rgba(255,165,0,.30);   border-color: rgba(178,85,0,.85); }
-.pane--three{ background: rgba(255,255,0,.28);   border-color: rgba(176,155,0,.85); }
-.pane--four { background: rgba(255,0,0,.26);     border-color: rgba(176,0,32,.85); }
-.pane--five { background: rgba(255,105,180,.30); border-color: rgba(176,48,111,.85); }
+/* Panel-farver */
+.page-matter .pane--one  { background:rgba(124,237,247,.35); border-color:rgba(44,30,136,.9); }
+.page-matter .pane--two  { background:rgba(255,165,0,.30);   border-color:rgba(178,85,0,.85); }
+.page-matter .pane--three{ background:rgba(255,255,0,.28);   border-color:rgba(176,155,0,.85); }
+.page-matter .pane--four { background:rgba(255,0,0,.26);     border-color:rgba(176,0,32,.85); }
+.page-matter .pane--five { background:rgba(255,105,180,.30); border-color:rgba(176,48,111,.85); }
 
-/* ====== Mobil (base): radio – kun én boks ad gangen, under hero ====== */
-.m-label--rd, .m-panels--rd{ display:block; }
-.m-label--cb, .pane--cb    { display:none; }
+/* Mobil (radio) vs. desktop (checkbox) visning */
+.page-matter .m-label--rd, .page-matter .m-panels--rd{ display:block; }
+.page-matter .m-label--cb, .page-matter .pane--cb    { display:none; }
 
-.matter-panels.m-panels--rd{
-  width:min(100%,1200px); margin:0 auto 1.25rem;
+.page-matter .matter-panels.m-panels--rd{
+  width:min(100%,1200px);
+  margin:0 auto 1.25rem;
   display:grid; gap:.75rem;
 }
-.m-panels--rd .duck-pane{ display:none; }
+.page-matter .m-panels--rd .duck-pane{ display:none; }
 
 /* Radio-kobling (inputs står før panels i DOM) */
 #rd-1:checked ~ .matter-panels #pane-1-rd{ display:block; }
@@ -257,52 +195,18 @@
 #rd-4:checked ~ .matter-panels #pane-4-rd{ display:block; }
 #rd-5:checked ~ .matter-panels #pane-5-rd{ display:block; }
 
-/* ===== CTA-ÆNDER – STØRRELSER ===== */
-
-/* Basis (mobil og små skærme) – GØR DEM SMÅ HER */
-.matter-hero{
-  /* hvor små skal de kunne blive */
-  --duck-min: 28px;
-  /* “ideel” bredde ift. viewport (gør mindre hvis de stadig er store) */
-  --duck-ideal: 12vw;
-  /* loft på små skærme */
-  --duck-max: 56px;
+/* ===== Responsiv finjustering ===== */
+@media (max-width:700px){
+  .page-matter .matter-wrap{ --place-room:1.5rem; }
+  .page-matter .matter-hero{ --place-gap:.6rem; }
 }
-
-/* Selve billedbredden følger tokens ovenfor */
-.cta-duck img{
-  width: clamp(var(--duck-min), var(--duck-ideal), var(--duck-max));
-  height: auto;
-}
-
-/* Ekstra lille skærm (kan gøre dem endnu mindre) */
-@media (max-width: 420px){
-  .matter-hero{
-    --duck-min: 24px;
-    --duck-ideal: 14vw; /* lidt større vw men lavt max holder dem små */
-    --duck-max: 48px;
+@media (max-width:420px){
+  .page-matter .matter-hero{
+    --duck-min:24px; --duck-ideal:14vw; --duck-max:48px;
   }
 }
-
-/* Desktop (≥801px) – MÅ GERNE VÆRE STØRRE HER */
-@media (min-width: 801px){
-  .matter-hero{
-    --duck-min: 56px;
-    --duck-ideal: 7vw;
-    --duck-max: 110px;
+@media (min-width:801px){
+  .page-matter .matter-hero{
+    --duck-min:56px; --duck-ideal:7vw; --duck-max:110px;
   }
 }
-
-/* Luft mellem menu/header og overskriften på matter-siden */
-.page-matter .matter-heading{
-  margin-top: clamp(70px, 4vw, 56px); /* justér tal efter smag */
-}
-
-.visually-hidden{
-  position:absolute;
-  width:1px;height:1px;
-  padding:0;margin:-1px;border:0;
-  overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);
-  white-space:nowrap;
-}
-
