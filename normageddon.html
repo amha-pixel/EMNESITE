@@ -1,164 +1,106 @@
 <!DOCTYPE html>
 <html lang="da">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-    <title>Normageddon</title>
-    <link rel="stylesheet" href="CSS/generel.css">
-    <link rel="stylesheet" href="CSS/layout.css">
-    <link rel="stylesheet" href="CSS/normageddon.css">
-    <link rel="icon" type="image/svg+xml" href="IMAGES/favicon.svg" sizes="any">
-    <link rel="preload" as="image" href="IMAGES/backgrounddigitalartsocialstigma_wp.webp">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normageddon</title>
+  <link rel="stylesheet" href="CSS/generel.css">
+  <link rel="stylesheet" href="CSS/layout.css">
+  <link rel="stylesheet" href="CSS/normageddon.css">
+  <link rel="icon" type="image/svg+xml" href="IMAGES/favicon.svg" sizes="any">
+  <link rel="preload" as="image" href="IMAGES/backgrounddigitalartsocialstigma_wp.webp">
 </head>
 
-<body>
-    <header>
-      <div class="logo">
-        <a href="index.html">
-          <img src="IMAGES/LOGOAXHX.svg" alt="AXHXvision logo">
-        </a>
-      </div>
-      <nav aria-label="Hovedmenu">
-        <ol class="menu">
-          <li class="pink"><a href="vision.html"><span class="sr-only">Vision</span></a></li>
-          <li class="green"><a href="matteroutofplace.html"><span class="sr-only">Matter out of place</span></a></li>
-          <li class="green"><a href="normageddon.html"><span class="sr-only">Normageddon</span></a></li>
-          <li class="green"><a href="guidetilkritisktaenkning.html"><span class="sr-only">Guide til kritisk tænkning</span></a></li>
-        </ol>
-      </nav>      
-    </header>
-
-    <main class="norm-wrap">
-      <!-- SIDE-OVERSKRIFT (split) -->
-      <div class="norm-heading">
-        <h1 class="page-title norm-title">
-          <span class="w1">Norma</span>
-          <span class="w2">geddon</span>
-        </h1>
-        <span class="sr-only">Normageddon</span>
-      </div>
-  
-      <!-- MOBIL: radio (kun én ad gangen) -->
-      <input type="radio" name="ntab" id="nrd-none" class="m-input m-input--rd" checked>
-      <input type="radio" name="ntab" id="nrd-1"    class="m-input m-input--rd">
-      <input type="radio" name="ntab" id="nrd-2"    class="m-input m-input--rd">
-      <input type="radio" name="ntab" id="nrd-3"    class="m-input m-input--rd">
-      <input type="radio" name="ntab" id="nrd-4"    class="m-input m-input--rd">
-      <input type="radio" name="ntab" id="nrd-5"    class="m-input m-input--rd">
-  
-      <!-- DESKTOP: checkbox (flere åbne) -->
-      <input type="checkbox" id="ncb-1" class="m-input m-input--cb">
-      <input type="checkbox" id="ncb-2" class="m-input m-input--cb">
-      <input type="checkbox" id="ncb-3" class="m-input m-input--cb">
-      <input type="checkbox" id="ncb-4" class="m-input m-input--cb">
-      <input type="checkbox" id="ncb-5" class="m-input m-input--cb">
-  
-      <!-- HERO -->
-      <section class="norm-hero" aria-label="Normageddon – scene">
-        <img class="norm-hero__bg" src="IMAGES/backgrounddigitalartsocialstigma_wp.webp" alt="Digitalt scene-baggrund til Normageddon">
-  
-        <!-- Lodret ord -->
-        <span class="norm-rail" aria-hidden="true">norm</span>
-  
-        <!-- ART: base + alt -->
-        <div class="norm-hero__artwrap">
-          <img class="norm-hero__art art--base" src="IMAGES/social-stigma_wp.webp" alt="Normageddon værk – base">
-          <img class="norm-hero__art art--alt"  src="IMAGES/norm-click.png"  alt="Normageddon værk – alternativ">
-          <input id="art-toggle" type="checkbox" class="visually-hidden" aria-label="Skift billede">
-          <label for="art-toggle" class="art-hit">
-            <span class="sr-only">Skift billede</span>
-          </label>
-        </div>
-  
-        <!-- CTA-ALIENS – MOBIL (radio) -->
-        <label for="nrd-1" class="cta-alien alien--1 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="nrd-2" class="cta-alien alien--2 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="nrd-3" class="cta-alien alien--3 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="nrd-4" class="cta-alien alien--4 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="nrd-5" class="cta-alien alien--5 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
-  
-        <!-- CTA-ALIENS – DESKTOP (checkbox) -->
-        <label for="ncb-1" class="cta-alien alien--1 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="ncb-2" class="cta-alien alien--2 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="ncb-3" class="cta-alien alien--3 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="ncb-4" class="cta-alien alien--4 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
-        <label for="ncb-5" class="cta-alien alien--5 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
-  
-        <!-- DESKTOP paneler -->
-        <article id="npane-1-cb" class="alien-pane pane--one pane--cb">
-          <h2 class="sr-only">#1 Normens maskineri</h2>
-          <p>#1 Når normer stivner, bliver forskellighed til støj. Normageddon undersøger, hvordan normer opstår, reproduceres og kan brydes op, så menneskelig variation får plads.</p>
-          <label for="ncb-1" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-2-cb" class="alien-pane pane--two pane--cb">
-          <h2 class="sr-only">#2 Klassifikation & kontrol</h2>
-          <p>#2 Kategorier sorterer verden – men de former også mennesker. Når vi måler, mærker og rangerer, trækker vi grænser for, hvem der tæller som “normal”.</p>
-          <label for="ncb-2" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-3-cb" class="alien-pane pane--three pane--cb">
-          <h2 class="sr-only">#3 Anomalien vender tilbage</h2>
-          <p>#3 Afvigelsen er ikke en fejl i mennesket, men en afsløring af systemets snæverhed. Den grønne alien markerer alt det, der ikke passer – endnu.</p>
-          <label for="ncb-3" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-4-cb" class="alien-pane pane--four pane--cb">
-          <h2 class="sr-only">#4 Omskriv normen</h2>
-          <p>#4 I stedet for at presse mennesker ind i formen, kan vi udvide formen. Det er ikke renselse – men reparation.</p>
-          <label for="ncb-4" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-5-cb" class="alien-pane pane--five pane--cb">
-          <h2 class="sr-only">#5 Nye spilleregler</h2>
-          <p>#5 Når reglerne bygger på forskellighed, bliver normaliteten elastisk. Det er Normageddon: et system der kan rumme det uventede.</p>
-          <label for="ncb-5" class="m-close" aria-label="Luk">✕</label>
-        </article>
-      </section>
-  
-      <!-- MOBIL paneler -->
-      <section class="norm-panels m-panels--rd" aria-labelledby="np-title">
-        <h2 id="np-title" class="sr-only">Normageddon-panels (mobil)</h2>
-  
-        <article id="npane-1-rd" class="alien-pane pane--one">
-          <h2 class="sr-only">#1 Normens maskineri</h2>
-          <p>Når normer stivner, bliver forskellighed til støj. Normageddon undersøger, hvordan normer opstår, reproduceres og kan brydes op, så menneskelig variation får plads.</p>
-          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-2-rd" class="alien-pane pane--two">
-          <h2 class="sr-only">#2 Klassifikation & kontrol</h2>
-          <p>Kategorier sorterer verden – men de former også mennesker. Når vi måler, mærker og rangerer, trækker vi grænser for, hvem der tæller som “normal”.</p>
-          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-3-rd" class="alien-pane pane--three">
-          <h2 class="sr-only">#3 Anomalien vender tilbage</h2>
-          <p>Afvigelsen er ikke en fejl i mennesket, men en afsløring af systemets snæverhed. Den grønne alien markerer alt det, der ikke passer – endnu.</p>
-          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-4-rd" class="alien-pane pane--four">
-          <h2 class="sr-only">#4 Omskriv normen</h2>
-          <p>I stedet for at presse mennesker ind i formen, kan vi udvide formen. Det er ikke renselse – men reparation.</p>
-          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
-        </article>
-  
-        <article id="npane-5-rd" class="alien-pane pane--five">
-          <h2 class="sr-only">#5 Nye spilleregler</h2>
-          <p>Når reglerne bygger på forskellighed, bliver normaliteten elastisk. Det er Normageddon: et system der kan rumme det uventede.</p>
-          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
-        </article>
-      </section>
-    </main>
-  
-    <footer>
-      <p>© 2025 AXHX</p>
-      <a class="exit" href="index.html" aria-label="Til forsiden">
-        <img src="IMAGES/ExitCTA_clean_fixed.svg" alt="Logo AXHX" draggable="false">
+<body class="page-norm">
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="IMAGES/LOGOAXHX.svg" alt="AXHXvision logo">
       </a>
-    </footer>
-  </body>
-  </html>
+    </div>
+    <nav aria-label="Hovedmenu">
+      <ol class="menu">
+        <li class="pink"><a href="vision.html"><span class="sr-only">Vision</span></a></li>
+        <li class="green"><a href="matteroutofplace.html"><span class="sr-only">Matter out of place</span></a></li>
+        <li class="green"><a href="normageddon.html"><span class="sr-only">Normageddon</span></a></li>
+        <li class="green"><a href="guidetilkritisktaenkning.html"><span class="sr-only">Guide til kritisk tænkning</span></a></li>
+      </ol>
+    </nav>      
+  </header>
+
+  <main class="norm-wrap">
+    <!-- SIDE-OVERSKRIFT -->
+    <div class="norm-heading">
+      <h1 class="page-title norm-title">
+        <span class="w1">Norma</span>
+        <span class="w2">geddon</span>
+      </h1>
+      <span class="sr-only">Normageddon</span>
+    </div>
+
+    <!-- RADIO: kun én ad gangen -->
+    <input type="radio" name="ntab" id="nrd-none" class="m-input" checked>
+    <input type="radio" name="ntab" id="nrd-1"    class="m-input">
+    <input type="radio" name="ntab" id="nrd-2"    class="m-input">
+    <input type="radio" name="ntab" id="nrd-3"    class="m-input">
+    <input type="radio" name="ntab" id="nrd-4"    class="m-input">
+    <input type="radio" name="ntab" id="nrd-5"    class="m-input">
+
+    <!-- HERO (ingen ART, ingen lodret tekst, ingen cb) -->
+    <section class="norm-hero" aria-label="Normageddon – scene">
+      <img class="norm-hero__bg" src="IMAGES/backgrounddigitalartsocialstigma_wp.webp" alt="Digitalt scene-baggrund til Normageddon">
+
+      <!-- CTA-ikoner (labels der toggler radioerne) -->
+      <label for="nrd-1" class="cta-alien alien--1 m-label--rd"><img src="IMAGES/lysestdødningeCTA.svg" alt=""></label>
+      <label for="nrd-2" class="cta-alien alien--2 m-label--rd"><img src="IMAGES/mellemdødningeCTA.svg" alt=""></label>
+      <label for="nrd-3" class="cta-alien alien--3 m-label--rd"><img src="IMAGES/mørkestdødningeCTA.svg" alt=""></label>
+      <label for="nrd-4" class="cta-alien alien--4 m-label--rd"><img src="IMAGES/mellemdødningeCTA.svg" alt=""></label>
+      <label for="nrd-5" class="cta-alien alien--5 m-label--rd"><img src="IMAGES/mørkestdødningeCTA.svg" alt=""></label>
+    </section>
+
+    <!-- PANELS (vises under hero via :checked ~ selector) -->
+    <section class="norm-panels m-panels--rd" aria-labelledby="np-title">
+      <h2 id="np-title" class="sr-only">Normageddon-panels</h2>
+
+      <article id="npane-1-rd" class="alien-pane pane--one">
+        <h3 class="sr-only">Normageddon – når normerne går under</h3>
+        <p>I Bibelen beskriver Armageddon den endelige kamp mellem det gode og det onde – et sammenbrud af verden, som vi kender den, før en ny orden opstår.
+          Overført til det sociale kan man tale om Normageddon: et symbolsk “dommedagsscenarie”, hvor de etablerede normer, værdier og sociale regler bryder sammen eller bliver udfordret.
+          Normageddon er dog ikke verdens ende, men en begyndelse, hvor samfundet genforhandler sine normer og sit syn på mennesket. Og det starter med dig. </p>
+        <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+      </article>
+
+      <article id="npane-2-rd" class="alien-pane pane--two">
+        <h3 class="sr-only">Erving Goffman – socialt stigma, frontstage og backstage</h3>
+        <p>Sociologen Erving Goffman (1922–1982) beskrev det sociale liv som et teater, hvor vi alle spiller roller. På frontstage viser vi den version af os selv, som passer til situationen og de sociale forventninger. På backstage kan vi slippe rollen, vise sårbarhed og genvinde vores egentlige selv. I sin teori om socialt stigma viste Goffman, hvordan mennesker, der afviger fra det “normale”, ofte bliver mærket og reduceret i andres øjne. Et stigma er ikke kun et personligt problem, men et socialt forhold, der opstår i mødet mellem “de normale” og “de afvigende”. Goffman inviterer os til at overveje, hvordan vi selv deltager i at skabe eller nedbryde de masker og grænser, vi lever bag.</p>
+        <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+      </article>
+
+      <article id="npane-3-rd" class="alien-pane pane--three">
+        <h3 class="sr-only">Ontologi – forståelsen af væren</h3>
+        <p>Ontologi handler om, hvad der er – hvordan virkeligheden og væren forstås og inddeles. Den spørger: Hvad eksisterer? Hvordan bliver noget “virkeligt”? I en social sammenhæng peger ontologi på, at virkeligheden ikke nødvendigvis er fast, men skabt gennem menneskers handlinger, tanker og relationer. Vores måde at se, forstå og tale om verden på former selve verden. Når vi studerer Goffmans teorier, ser vi, at “identitet” og “normalitet” ikke er naturgivne ontologier, men sociale konstruktioner, der opstår i samspil mellem mennesker.</p>
+        <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+      </article>
+
+      <article id="npane-4-rd" class="alien-pane pane--four">
+        <h3 class="sr-only">Det esoteriske – den indre dimension af væren</h3>
+        <p>Esoterisk betyder det indre, skjulte eller spirituelle lag af virkeligheden – det, som kun kan erfares indefra. Det peger på menneskets subjektive oplevelse, følelser og selvforståelse. I relation til Goffmans teori repræsenterer den esoteriske dimension backstage: her hvor individet kan træde ud af de sociale roller og mærke sig selv uden publikums blik. Her lever de tanker, skamfølelser og identitetskampe, som stigma kan skabe. Den esoteriske dimension minder os om, at bag hver social maske findes et menneske med et indre liv, som ikke altid stemmer overens med det, vi viser udadtil. Den åbner for refleksion over, hvordan det “usynlige selv” påvirkes af de synlige normer, vi omgiver os med..</p>
+        <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+      </article>
+
+      <article id="npane-5-rd" class="alien-pane pane--five">
+        <h3 class="sr-only">Det eksoteriske – den ydre, synlige dimension</h3>
+        <p>Eksoterisk betyder det ydre, synlige og fælles. Det handler om det, der foregår på overfladen – det, som er tilgængeligt for alles blik og forståelse. I Goffmans teori svarer den eksoteriske dimension til frontstage: den sociale scene, hvor vi performer vores identitet for at passe ind i normer og forventninger. Her bliver stigmaet synligt – når nogen afviger fra den rolle, samfundet forventer. Det eksoteriske er altså den del af virkeligheden, hvor sociale regler, kategorier og normer former, hvem der inkluderes og ekskluderes. Gennem denne linse kan publikum reflektere over, hvordan vores kollektive “teater” både afslører og skjuler menneskets egentlige væren – og hvilken rolle vi selv spiller i stykket.</p>
+        <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 AXHX</p>
+    <a class="exit" href="index.html" aria-label="Til forsiden">
+      <img src="IMAGES/ExitCTA_clean_fixed.svg" alt="Logo AXHX" draggable="false">
+    </a>
+  </footer>
+</body>
+</html>
