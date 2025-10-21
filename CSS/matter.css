@@ -7,15 +7,16 @@
   overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap;
 }
 
-/* ===== Webfont ===== */
+/* ===== Webfont (robust rækkefølge) ===== */
 @font-face{
-  font-family:"Blisey";
+  font-family: "Blisey";
   src:
-    url("../FONTS/Blisey.woff2?v=3") format("woff2"),
-    url("../FONTS/Blisey.woff?v=3")  format("woff");
-  font-weight:400;
-  font-style:normal;
-  font-display:swap;
+    url("../FONTS/Blisey.woff2?v=14") format("woff2"),
+    url("../FONTS/Blisey.woff?v=14")  format("woff"),
+    url("../FONTS/Blisey.otf?v=14")   format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* ===== Layout wrap (scoped) ===== */
@@ -36,7 +37,7 @@
   overflow:visible;
 }
 .page-matter .page-title{
-  font: 400 clamp(28px, 5vw, 52px)/1.05 "Blisey", system-ui, Arial, sans-serif;
+  font: 400 clamp(40px, 8vw, 62px)
   text-align:center;
   letter-spacing:.04em;
   margin:0;
@@ -46,7 +47,7 @@
 }
 .page-matter .matter-title{
   /* split-overskriften deler samme look som .page-title */
-  font: 400 clamp(28px, 5vw, 52px)/1.05 "Blisey", var(--font-base, system-ui);
+  font: 400 clamp(40px, 8vw, 62px)
   letter-spacing:.04em;
   color:#000;
   -webkit-text-stroke:1.2px #000;
@@ -211,3 +212,11 @@
   }
 }
 
+/* === Bind "Matter out of" til samme font som 'place' === */
+.page-matter .matter-heading .page-title,
+.page-matter .matter-heading .matter-title,
+.page-matter .matter-heading .matter-title .w1,
+.page-matter .matter-heading .matter-title .w2{
+  font-family: "Blisey", system-ui, Arial, sans-serif;
+  font-weight: 400;
+}
