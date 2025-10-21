@@ -47,7 +47,7 @@
 
 /* tilføj disse for gradvist større bobler */
 @media (max-width: 360px){
-  .page-vision .cta-img img{ width: clamp(56px, 30vw, 96px); }
+  .page-vision .cta-img img{ width: clamp(50px, 24vw, 96px); }
 }
 @media (min-width: 481px){
   .page-vision .cta-img img{ width: clamp(80px, 22vw, 130px); }
