@@ -211,7 +211,3 @@
   }
 }
 
-
-
-/* DEBUG: skal give en lille ramme rundt om siden */
-.page-matter{ outline: 3px solid rgba(255,0,0,.25); }
