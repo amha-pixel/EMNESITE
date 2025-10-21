@@ -79,11 +79,11 @@
 .page-norm .cta-alien:focus-visible{ --ty:-2px; outline:none; }
 
 /* Placering af ikoner */
-.page-norm .alien--1{ left:20%;  bottom:83%; }
-.page-norm .alien--2{ left:33%; bottom:83%; }
+.page-norm .alien--1{ left:10%;  bottom:83%; }
+.page-norm .alien--2{ left:25%; bottom:83%; }
 .page-norm .alien--3{ right:45%; bottom:83%; }
-.page-norm .alien--4{ right:33%; bottom:83%; }
-.page-norm .alien--5{ right:21%; bottom:83%; }
+.page-norm .alien--4{ right:25%; bottom:83%; }
+.page-norm .alien--5{ right:10%; bottom:83%; }
 
 /* === Paneler (under hero) === */
 .page-norm .alien-pane{
