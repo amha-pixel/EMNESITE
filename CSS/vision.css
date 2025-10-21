@@ -50,7 +50,7 @@
   .page-vision .cta-img img{ width: clamp(50px, 24vw, 96px); }
 }
 @media (min-width: 481px){
-  .page-vision .cta-img img{ width: clamp(80px, 22vw, 130px); }
+  .page-vision .cta-img img{ width: clamp(76px, 18vw, 126px); }
 }
 @media (min-width: 801px){
   .page-vision .cta-img img{ width: clamp(120px, 12vw, 200px); }
