@@ -8,6 +8,7 @@
     <title>Normageddon</title>
     <link rel="stylesheet" href="CSS/generel.css">
     <link rel="stylesheet" href="CSS/layout.css">
+    <link rel="stylesheet" href="CSS/normageddon.css">
     <link rel="icon" type="image/svg+xml" href="IMAGES/favicon.svg" sizes="any">
     <link rel="preload" as="image" href="IMAGES/backgrounddigitalartsocialstigma_wp.webp">
 </head>
@@ -29,14 +30,130 @@
       </nav>      
     </header>
 
-    <main>
-        <h1>Normageddon</h1>
-        <div class="hall">
-            <img class="hall__bg" src="IMAGES/backgrounddigitalartsocialstigma_wp.webp" alt="Virtuelt museum">
-            <div class="hall__content">
-              <!-- DIT INDHOLD OVENPÅ BILLEDET -->
+    <main class="norm-wrap">
+      <!-- SIDE-OVERSKRIFT (split) -->
+      <div class="norm-heading">
+        <h1 class="page-title norm-title">
+          <span class="w1">Norma</span>
+          <span class="w2">geddon</span>
+        </h1>
+        <span class="sr-only">Normageddon</span>
+      </div>
+  
+      <!-- MOBIL: radio (kun én ad gangen) -->
+      <input type="radio" name="ntab" id="nrd-none" class="m-input m-input--rd" checked>
+      <input type="radio" name="ntab" id="nrd-1"    class="m-input m-input--rd">
+      <input type="radio" name="ntab" id="nrd-2"    class="m-input m-input--rd">
+      <input type="radio" name="ntab" id="nrd-3"    class="m-input m-input--rd">
+      <input type="radio" name="ntab" id="nrd-4"    class="m-input m-input--rd">
+      <input type="radio" name="ntab" id="nrd-5"    class="m-input m-input--rd">
+  
+      <!-- DESKTOP: checkbox (flere åbne) -->
+      <input type="checkbox" id="ncb-1" class="m-input m-input--cb">
+      <input type="checkbox" id="ncb-2" class="m-input m-input--cb">
+      <input type="checkbox" id="ncb-3" class="m-input m-input--cb">
+      <input type="checkbox" id="ncb-4" class="m-input m-input--cb">
+      <input type="checkbox" id="ncb-5" class="m-input m-input--cb">
+  
+      <!-- HERO -->
+      <section class="norm-hero" aria-label="Normageddon – scene">
+        <img class="norm-hero__bg" src="IMAGES/backgrounddigitalartsocialstigma_wp.webp" alt="Digitalt scene-baggrund til Normageddon">
+  
+        <!-- Lodret ord -->
+        <span class="norm-rail" aria-hidden="true">norm</span>
+  
+        <!-- ART: base + alt -->
+        <div class="norm-hero__artwrap">
+          <img class="norm-hero__art art--base" src="IMAGES/social-stigma_wp.webp" alt="Normageddon værk – base">
+          <img class="norm-hero__art art--alt"  src="IMAGES/norm-click.png"  alt="Normageddon værk – alternativ">
+          <input id="art-toggle" type="checkbox" class="visually-hidden" aria-label="Skift billede">
+          <label for="art-toggle" class="art-hit">
+            <span class="sr-only">Skift billede</span>
+          </label>
+        </div>
+  
+        <!-- CTA-ALIENS – MOBIL (radio) -->
+        <label for="nrd-1" class="cta-alien alien--1 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="nrd-2" class="cta-alien alien--2 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="nrd-3" class="cta-alien alien--3 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="nrd-4" class="cta-alien alien--4 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="nrd-5" class="cta-alien alien--5 m-label--rd"><img src="IMAGES/alien-green.svg" alt=""></label>
+  
+        <!-- CTA-ALIENS – DESKTOP (checkbox) -->
+        <label for="ncb-1" class="cta-alien alien--1 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="ncb-2" class="cta-alien alien--2 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="ncb-3" class="cta-alien alien--3 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="ncb-4" class="cta-alien alien--4 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
+        <label for="ncb-5" class="cta-alien alien--5 m-label--cb"><img src="IMAGES/alien-green.svg" alt=""></label>
+  
+        <!-- DESKTOP paneler -->
+        <article id="npane-1-cb" class="alien-pane pane--one pane--cb">
+          <h2 class="sr-only">#1 Normens maskineri</h2>
+          <p>#1 Når normer stivner, bliver forskellighed til støj. Normageddon undersøger, hvordan normer opstår, reproduceres og kan brydes op, så menneskelig variation får plads.</p>
+          <label for="ncb-1" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-2-cb" class="alien-pane pane--two pane--cb">
+          <h2 class="sr-only">#2 Klassifikation & kontrol</h2>
+          <p>#2 Kategorier sorterer verden – men de former også mennesker. Når vi måler, mærker og rangerer, trækker vi grænser for, hvem der tæller som “normal”.</p>
+          <label for="ncb-2" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-3-cb" class="alien-pane pane--three pane--cb">
+          <h2 class="sr-only">#3 Anomalien vender tilbage</h2>
+          <p>#3 Afvigelsen er ikke en fejl i mennesket, men en afsløring af systemets snæverhed. Den grønne alien markerer alt det, der ikke passer – endnu.</p>
+          <label for="ncb-3" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-4-cb" class="alien-pane pane--four pane--cb">
+          <h2 class="sr-only">#4 Omskriv normen</h2>
+          <p>#4 I stedet for at presse mennesker ind i formen, kan vi udvide formen. Det er ikke renselse – men reparation.</p>
+          <label for="ncb-4" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-5-cb" class="alien-pane pane--five pane--cb">
+          <h2 class="sr-only">#5 Nye spilleregler</h2>
+          <p>#5 Når reglerne bygger på forskellighed, bliver normaliteten elastisk. Det er Normageddon: et system der kan rumme det uventede.</p>
+          <label for="ncb-5" class="m-close" aria-label="Luk">✕</label>
+        </article>
+      </section>
+  
+      <!-- MOBIL paneler -->
+      <section class="norm-panels m-panels--rd" aria-labelledby="np-title">
+        <h2 id="np-title" class="sr-only">Normageddon-panels (mobil)</h2>
+  
+        <article id="npane-1-rd" class="alien-pane pane--one">
+          <h2 class="sr-only">#1 Normens maskineri</h2>
+          <p>Når normer stivner, bliver forskellighed til støj. Normageddon undersøger, hvordan normer opstår, reproduceres og kan brydes op, så menneskelig variation får plads.</p>
+          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-2-rd" class="alien-pane pane--two">
+          <h2 class="sr-only">#2 Klassifikation & kontrol</h2>
+          <p>Kategorier sorterer verden – men de former også mennesker. Når vi måler, mærker og rangerer, trækker vi grænser for, hvem der tæller som “normal”.</p>
+          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-3-rd" class="alien-pane pane--three">
+          <h2 class="sr-only">#3 Anomalien vender tilbage</h2>
+          <p>Afvigelsen er ikke en fejl i mennesket, men en afsløring af systemets snæverhed. Den grønne alien markerer alt det, der ikke passer – endnu.</p>
+          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-4-rd" class="alien-pane pane--four">
+          <h2 class="sr-only">#4 Omskriv normen</h2>
+          <p>I stedet for at presse mennesker ind i formen, kan vi udvide formen. Det er ikke renselse – men reparation.</p>
+          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+        </article>
+  
+        <article id="npane-5-rd" class="alien-pane pane--five">
+          <h2 class="sr-only">#5 Nye spilleregler</h2>
+          <p>Når reglerne bygger på forskellighed, bliver normaliteten elastisk. Det er Normageddon: et system der kan rumme det uventede.</p>
+          <label for="nrd-none" class="m-close" aria-label="Luk">✕</label>
+        </article>
+      </section>
     </main>
-
+  
     <footer>
       <p>© 2025 AXHX</p>
       <a class="exit" href="index.html" aria-label="Til forsiden">
@@ -44,4 +161,4 @@
       </a>
     </footer>
   </body>
-</html>
+  </html>

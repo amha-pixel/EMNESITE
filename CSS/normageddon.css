@@ -1,0 +1,210 @@
+/* ===== Utilities ===== */
+*{ box-sizing:border-box; }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+.m-input{ position:absolute; opacity:0; pointer-events:none; }
+.visually-hidden{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px; border:0;
+  overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap;
+}
+
+/* ===== Webfont (URBAN VIBES) ===== */
+@font-face{
+  font-family:"Urban Vibes";
+  src:
+    url("../FONTS/UrbanVibes.woff2") format("woff2"),
+    url("../FONTS/UrbanVibes.woff")  format("woff");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+/* ===== Layout wrap (scoped) ===== */
+.page-norm .norm-wrap{
+  width:min(100%, 1200px);
+  margin:0 auto;
+  --pad: clamp(12px, 3vw, 24px);
+  --rail-room: 1rem;
+  padding:0 var(--pad);
+  padding-right:calc(var(--pad) + var(--rail-room));
+}
+
+/* ===== H1 / Heading ===== */
+.page-norm .norm-heading{
+  position:relative;
+  width:min(100%, 1200px);
+  margin: clamp(70px, 4vw, 56px) auto clamp(12px, 2vw, 24px);
+  overflow:visible;
+}
+.page-norm .page-title{
+  font: 400 clamp(28px, 5vw, 52px)/1.05 "Urban Vibes", system-ui, Arial, sans-serif;
+  text-align:center;
+  letter-spacing:.04em;
+  margin:0;
+  color:#000;
+  -webkit-text-stroke:1.2px #8b8b8b;
+  text-shadow:0 6px 12px rgba(0,0,0,.10);
+}
+.page-norm .norm-title{
+  font: 400 clamp(28px, 5vw, 52px)/1.05 "Urban Vibes", var(--font-base, system-ui);
+  letter-spacing:.04em;
+  color:#000;
+  -webkit-text-stroke:1.2px #000;
+  text-shadow:0 6px 12px rgba(0,0,0,.10);
+  display:flex; gap:.6ch; justify-content:flex-start;
+}
+
+/* ===== Hero / Scene ===== */
+.page-norm .norm-hero{
+  position:relative;
+  aspect-ratio:16/9;
+  width:100%;
+  margin:1rem auto 1.25rem;
+  overflow:visible;
+  border-radius:8px;
+  box-shadow:0 12px 12px rgba(0,0,0,.12);
+
+  /* tokens */
+  --rail-gap:1.2rem;
+  --art-w:33%;
+  --art-left:34%;
+  --art-top:7%;
+
+  /* CTA-størrelser (mobile-first) */
+  --alien-min:28px;
+  --alien-ideal:12vw;
+  --alien-max:56px;
+}
+.page-norm .norm-hero__bg{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; z-index:0;
+}
+
+/* Lodret "norm" */
+.page-norm .norm-rail{
+  position:absolute;
+  top:50%;
+  right:calc(-1 * var(--rail-gap));
+  transform:translateY(-50%);
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  font:400 clamp(22px, 4.5vw, 44px)/1 "Urban Vibes", var(--font-base, system-ui);
+  letter-spacing:.04em; color:#000;
+  -webkit-text-stroke:1.2px #0f0b0b;
+  text-shadow:0 6px 12px rgba(0,0,0,.10);
+  z-index:2; pointer-events:none;
+}
+
+/* ART: base + alt + klik/tap overlay */
+.page-norm .norm-hero__artwrap{
+  position:absolute; z-index:1;
+  left:var(--art-left); top:var(--art-top);
+  width:var(--art-w);
+  filter:drop-shadow(0 16px 20px rgba(0,0,0,.28));
+  border-radius:2px;
+}
+.page-norm .norm-hero__artwrap .art--base{
+  position:relative; display:block; width:100%; height:auto; border-radius:inherit;
+}
+.page-norm .norm-hero__artwrap .art--alt{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; border-radius:inherit;
+  opacity:0; transition:opacity .25s ease;
+  pointer-events:none;
+}
+.page-norm .norm-hero__artwrap:hover .art--alt,
+.page-norm .norm-hero__artwrap:focus-within .art--alt{ opacity:1; }
+#art-toggle:checked ~ .norm-hero .norm-hero__artwrap .art--alt{ opacity:1; }
+
+.page-norm .norm-hero__artwrap .art-hit{
+  position:absolute; inset:0; cursor:pointer; border-radius:inherit;
+}
+@media (hover:hover){
+  .page-norm .norm-hero__artwrap{ cursor:pointer; }
+}
+.page-norm .norm-hero__artwrap:hover .art--base,
+#art-toggle:checked ~ .norm-hero .norm-hero__artwrap .art--base{
+  opacity:0; transition:opacity .25s ease;
+}
+
+/* ===== CTA-aliens ===== */
+.page-norm .cta-alien{
+  --tx:0; --ty:0;
+  position:absolute; z-index:2;
+  transform:translate(var(--tx), var(--ty));
+  transition:transform .15s ease;
+  line-height:0;
+}
+.page-norm .cta-alien img{
+  display:block;
+  width:clamp(var(--alien-min), var(--alien-ideal), var(--alien-max));
+  height:auto;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));
+}
+.page-norm .cta-alien:hover,
+.page-norm .cta-alien:focus-visible{ --ty:-2px; outline:none; }
+
+/* Placering af aliens (samme som ænderne) */
+.page-norm .alien--1{ left:8%;  bottom:6%; }
+.page-norm .alien--2{ right:6%; bottom:6%; }
+.page-norm .alien--3{ left:16%; bottom:1%; }
+.page-norm .alien--4{ right:20%; bottom:0%; }
+.page-norm .alien--5{ left:63%; bottom:20%; transform:translate(-50%, var(--ty)); }
+
+/* ===== Paneler ===== */
+.page-norm .alien-pane{
+  position:relative;
+  background:#fff8; backdrop-filter:blur(2px);
+  border:2px solid #0002; border-radius:10px;
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
+  color:#111; line-height:1.5;
+  padding-top:2rem; /* plads til luk-knap */
+}
+.page-norm .alien-pane p{ margin:0; padding:.9rem 1rem 1rem; }
+.page-norm .m-close{
+  position:absolute; top:.4rem; right:.6rem;
+  width:28px; height:28px; border-radius:999px;
+  display:grid; place-items:center; cursor:pointer;
+  background:#fff; border:1px solid rgba(0,0,0,.25);
+  box-shadow:0 2px 6px rgba(0,0,0,.2); font-weight:700;
+}
+
+/* Panel-farver (let sci-fi twist) */
+.page-norm .pane--one  { background:rgba(120,255,120,.30); border-color:rgba( 40,130, 40,.85); }
+.page-norm .pane--two  { background:rgba(124,237,247,.35); border-color:rgba( 44, 30,136,.90); }
+.page-norm .pane--three{ background:rgba(255,255,120,.28); border-color:rgba(176,155,  0,.85); }
+.page-norm .pane--four { background:rgba(255,120,120,.26); border-color:rgba(176,  0, 32,.85); }
+.page-norm .pane--five { background:rgba(180,120,255,.30); border-color:rgba( 90, 48,176,.85); }
+
+/* Mobil (radio) vs. desktop (checkbox) visning */
+.page-norm .m-label--rd, .page-norm .m-panels--rd{ display:block; }
+.page-norm .m-label--cb, .page-norm .pane--cb    { display:none; }
+
+.page-norm .norm-panels.m-panels--rd{
+  width:min(100%,1200px);
+  margin:0 auto 1.25rem;
+  display:grid; gap:.75rem;
+}
+.page-norm .m-panels--rd .alien-pane{ display:none; }
+
+/* Radio-kobling (inputs står før panels i DOM) */
+#nrd-1:checked ~ .norm-panels #npane-1-rd{ display:block; }
+#nrd-2:checked ~ .norm-panels #npane-2-rd{ display:block; }
+#nrd-3:checked ~ .norm-panels #npane-3-rd{ display:block; }
+#nrd-4:checked ~ .norm-panels #npane-4-rd{ display:block; }
+#nrd-5:checked ~ .norm-panels #npane-5-rd{ display:block; }
+
+/* ===== Responsiv finjustering ===== */
+@media (max-width:700px){
+  .page-norm .norm-wrap{ --rail-room:1.5rem; }
+  .page-norm .norm-hero{ --rail-gap:.6rem; }
+}
+@media (max-width:420px){
+  .page-norm .norm-hero{
+    --alien-min:24px; --alien-ideal:14vw; --alien-max:48px;
+  }
+}
+@media (min-width:801px){
+  .page-norm .norm-hero{
+    --alien-min:56px; --alien-ideal:7vw; --alien-max:110px;
+  }
+}
